@@ -6,10 +6,10 @@ import Date from '../components/Date'
 import Layout, { siteTitle } from '../components/Layout'
 import ParticlesContainer from '../components/Particles'
 import utilStyles from '../styles/utils.module.css'
-import { getSortedPostsData } from '../lib/posts'
+import { getSortedProjectsData } from '../lib/projects'
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData()
+  const allPostsData = getSortedProjectsData()
   return {
     props: {
       allPostsData,
@@ -23,6 +23,7 @@ export default function Home({ allPostsData }) {
     <ParticlesContainer>
       <Layout home>
         <Head>
+          <link rel="shortcut icon" href="/static/favicon.ico" />
           <title>{siteTitle}</title>
         </Head>
 
@@ -41,7 +42,7 @@ export default function Home({ allPostsData }) {
           <ul className={utilStyles.list}>
             {allPostsData.map(({ id, date, title }) => (
               <li className={utilStyles.listItem} key={id}>
-                <Link href={`/posts/${id}`}>
+                <Link href={`/projects/${id}`}>
                   <a>{title}</a>
                 </Link>
                 <br />

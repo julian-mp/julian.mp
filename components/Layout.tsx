@@ -4,7 +4,7 @@ import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 
 const name = 'Julian'
-export const siteTitle = 'Julian - Full-Stack Developer'
+export const siteTitle = 'Julian - Full Stack Developer'
 
 export default function Layout({ children, home }) {
   return (
@@ -25,7 +25,7 @@ export default function Layout({ children, home }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
-        {home ? (
+        {home && (
           <>
             <img
               src="/images/profile.jpg"
@@ -34,12 +34,6 @@ export default function Layout({ children, home }) {
             />
             <h1 className={utilStyles.heading2Xl}>Hello</h1>
           </>
-        ) : (
-          <div className={styles.backToHome}>
-            <Link href="/">
-              <a>← Back to home</a>
-            </Link>
-          </div>
         )}
       </header>
       <main>{children}</main>
