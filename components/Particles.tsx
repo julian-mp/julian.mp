@@ -1,17 +1,40 @@
-import Head from 'next/head'
+import { useEffect, useState } from 'react'
 import Particles from 'react-particles-js'
 
 import styles from './particles.module.css'
 
 export default function ParticlesContainer({ children }) {
+  const [windowHeight, setWindowHeight] = useState<number>()
+
+  useEffect(() => {
+    const body = document.body
+    const html = document.documentElement
+
+    const height = Math.max(
+      body.scrollHeight,
+      body.offsetHeight,
+      html.clientHeight,
+      html.scrollHeight,
+      html.offsetHeight
+    )
+
+    setWindowHeight(height)
+  }, [])
+
+  const colours = {
+    background: '#FF715B',
+    particles: '#564D80',
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.particles}>
         <Particles
+          height={`${windowHeight}px`}
           params={{
             background: {
               color: {
-                value: '#0d47a1',
+                value: colours.background,
               },
             },
             fpsLimit: 60,
@@ -46,10 +69,10 @@ export default function ParticlesContainer({ children }) {
             },
             particles: {
               color: {
-                value: '#ffffff',
+                value: colours.particles,
               },
               links: {
-                color: '#ffffff',
+                color: colours.particles,
                 distance: 150,
                 enable: true,
                 opacity: 0.5,

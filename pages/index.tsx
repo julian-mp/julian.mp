@@ -26,7 +26,7 @@ export default function Home({ allPostsData }) {
           <title>{siteTitle}</title>
         </Head>
 
-        <section className={utilStyles.headingMd}>
+        <section className={`${utilStyles.headingMd} ${utilStyles.center}`}>
           <p>
             My name is Julian and I am a Full Stack Developer based in London
           </p>
