@@ -5,7 +5,6 @@ import Date from '../../components/Date'
 import utilStyles from '../../styles/utils.module.css'
 
 export default function Post({ projectData }) {
-  console.log('project data', projectData)
   return (
     <Layout home={false}>
       <Head>
