@@ -16,5 +16,6 @@ Upon joining the game you are asked to login with your Spotify account and then 
 - Redis (Pub/Sub)
 - React
 - Redux
+- Docker
 - Kubernetes
 - Spotify API
